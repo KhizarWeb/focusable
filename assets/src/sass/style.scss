@@ -1,0 +1,21 @@
+html[data-focus-source="key"] .focusable {
+  &__ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999999;
+    transition: all 200ms ease;
+    outline: 2px dashed #000;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      outline: 2px dashed #fff;
+      outline-offset: 2px;
+    }
+  }
+}
