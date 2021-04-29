@@ -1,21 +1,14 @@
 <?php
 
 /**
- * The plugin bootstrap file
- *
- * This file is read by WordPress to generate the plugin information in the plugin
- * admin area. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
- *
- * @link              https://khizar.info
+ * @link              https://khizar.info/focusable
  * @since             1.0.0
  * @package           Focusable
  *
  * @wordpress-plugin
  * Plugin Name:       Focusable
- * Plugin URI:        https://redoxbird.com/focusable
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Plugin URI:        https://khizar.info/focusable
+ * Description:       This plugin displays a ring on the focusable elements when navigating through keyboard.
  * Version:           1.0.0
  * Author:            Khizar Hasan
  * Author URI:        https://khizar.info
@@ -29,12 +22,6 @@
 if (!defined('WPINC')) {
     die;
 }
-
-/**
- * Currently plugin version.
- * Start at version 1.0.0 and use SemVer - https://semver.org
- * Rename this for your plugin and update it as you release new versions.
- */
 
 define('FOCUSABLE_VERSION', '1.0.0');
 define('FOCUSABLE_DIR_URI', plugin_dir_url(__FILE__));

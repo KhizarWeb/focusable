@@ -1,22 +1,22 @@
 {
-  "name": "selleradise-widgets",
+  "name": "focusable",
   "version": "1.0.0",
-  "description": "=== Plugin Name === Contributors: (this should be a list of wordpress.org userid's) Donate link: https://khizar.info Tags: comments, spam Requires at least: 3.0.1 Tested up to: 3.4 Stable tag: 4.3 License: GPLv2 or later License URI: http://www.gnu.org/licenses/gpl-2.0.html",
+  "description": "A WordPress plugin that displays a ring on the focusable elements when navigating through keyboard.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KhizarWeb/selleradise-widgets.git"
+    "url": "git+https://github.com/KhizarWeb/focusable.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/KhizarWeb/selleradise-widgets/issues"
+    "url": "https://github.com/KhizarWeb/focusable/issues"
   },
-  "homepage": "https://github.com/KhizarWeb/selleradise-widgets#readme",
+  "homepage": "https://github.com/KhizarWeb/focusable#readme",
   "devDependencies": {
     "browser-sync": "^2.26.14",
     "browser-sync-webpack-plugin": "^2.2.2",

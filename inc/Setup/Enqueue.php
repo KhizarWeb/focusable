@@ -57,11 +57,6 @@ class Enqueue
 
         wp_enqueue_script('focusable-main', focusable_assets('js/main.js'), array(), time(), true);
 
-        wp_localize_script('focusable-main', 'focusableData', [
-            "nonce" => wp_create_nonce('wp_ajax'),
-            "ajaxURL" => admin_url('admin-ajax.php'),
-        ]);
-
         wp_enqueue_style('focusable-style', focusable_assets('css/style.css'), array(), time(), 'all');
     }
 
