@@ -14,6 +14,8 @@ class Enqueue
     public function register()
     {
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
+add_action('admin_enqueue_scripts', array($this, 'admin_enqueue_scripts'));
+
     }
 
     public function vendor_assets()
@@ -58,6 +60,13 @@ class Enqueue
         wp_enqueue_script('focusable-main', focusable_assets('js/main.js'), array(), time(), true);
 
         wp_enqueue_style('focusable-style', focusable_assets('css/style.css'), array(), time(), 'all');
+    }
+
+
+    public function admin_enqueue_scripts()
+    {
+
+        wp_enqueue_style('focusable-admin', focusable_assets('css/admin.css'), array(), time(), 'all');
     }
 
 }

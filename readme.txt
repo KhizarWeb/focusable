@@ -24,7 +24,7 @@ From your WordPress dashboard
 
 = Who is this plugin for exactly? =
 
-This plugin is for those who are unable to see focus ring on elements when navigating through due to their theme having been removed it intentionally.
+This plugin is for those who are unable to see focus ring on elements when navigating through due to having been removed intentionally by the theme.
 
 == Screenshots ==
 

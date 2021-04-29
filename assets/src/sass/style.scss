@@ -13,10 +13,11 @@
     top: 0;
     left: 0;
     z-index: 999999999;
-    outline: 2px dashed #000;
+    outline: 2px dashed #fff;
     outline-offset: 2px;
     pointer-events: none;
     filter: invert(1);
     transition: all 400ms easing(out-expo);
+    border-radius: 10px;
   }
 }

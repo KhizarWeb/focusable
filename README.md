@@ -1,6 +1,6 @@
 # Focusable (WordPress Plugin)
 
-A WordPress plugin that displays a ring on the focusable elements when navigating through keyboard.
+A WordPress plugin that displays a ring on the focusable elements when navigating through the keyboard.
 
 ## Installation
 
@@ -14,7 +14,7 @@ From your WordPress dashboard
 
 **Who is this plugin for exactly?**
 
-This plugin is for those who are unable to see focus ring on elements when navigating through due to their theme having been removed it intentionally.
+This plugin is for those who are unable to see focus ring on elements when navigating through due to having been removed intentionally by the theme.
 
 ## Changelog
 

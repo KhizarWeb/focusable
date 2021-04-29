@@ -5,7 +5,6 @@ class Focusable {
     this.activeElement = ally.event.activeElement();
     this.activeElementBoundingRect = {};
     this.focusRingElement = document.createElement("span");
-    this.focusRingElement.classList.add("focusable__ring");
     this.outlineColor = window
       .getComputedStyle(document.body, null)
       .getPropertyValue("background-color");
@@ -17,6 +16,8 @@ class Focusable {
   }
 
   addClass() {
+    this.focusRingElement.classList.add("focusable__ring");
+
     for (const element of this.focusableElements) {
       element.classList.add("focusable");
     }
@@ -41,7 +42,8 @@ class Focusable {
       if (this.focusSource.used("key") === false) {
         return;
       }
-      this.updateRingStyle();
+
+      this.updateRingPosition();
     });
   }
 
@@ -53,17 +55,6 @@ class Focusable {
     this.activeElementBoundingRect = this.activeElement.getBoundingClientRect();
 
     this.getBackgroundColor(this.activeElement);
-
-    // let outlineColor = this.outlineColor;
-    // let activeOutlineColor = window
-    //   .getComputedStyle(this.activeElement, null)
-    //   .getPropertyValue("outline-color");
-
-    // if (activeOutlineColor === "rgb(0, 0, 0)") {
-    //   outlineColor = this.outlineColor;
-    // } else {
-    //   outlineColor = activeOutlineColor;
-    // }
 
     const values = {
       transform: `translate(${this.activeElementBoundingRect.left}px, ${this.activeElementBoundingRect.top}px)`,
@@ -80,6 +71,16 @@ class Focusable {
     }
   }
 
+  updateRingPosition() {
+    if (!this.isElement(this.activeElement)) {
+      return;
+    }
+
+    this.activeElementBoundingRect = this.activeElement.getBoundingClientRect();
+
+    this.focusRingElement.style.transform = `translate(${this.activeElementBoundingRect.left}px, ${this.activeElementBoundingRect.top}px)`;
+  }
+
   getBackgroundColor(element) {
     let backgroundColor = window
       .getComputedStyle(element, null)
@@ -91,6 +92,20 @@ class Focusable {
       this.outlineColor = backgroundColor;
       return;
     }
+  }
+
+  gerOutlineColor(element) {
+    let outlineColor = this.outlineColor;
+    let activeOutlineColor = window
+      .getComputedStyle(element, null)
+      .getPropertyValue("outline-color");
+    if (activeOutlineColor === "rgb(0, 0, 0)") {
+      outlineColor = this.outlineColor;
+    } else {
+      outlineColor = activeOutlineColor;
+    }
+
+    return outlineColor;
   }
 
   invertColor(rgb) {
