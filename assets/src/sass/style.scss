@@ -17,7 +17,11 @@
     outline-offset: 2px;
     pointer-events: none;
     filter: invert(1);
-    transition: all 400ms easing(out-expo);
     border-radius: 10px;
+
+    &[data-focusable-transition="1"],
+    &[data-focusable-transition="true"] {
+      transition: all 400ms easing(out-expo);
+    }
   }
 }

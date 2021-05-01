@@ -1,26 +1,39 @@
 class Focusable {
   constructor() {
+    if (!ally.hasOwnProperty("style") || !ally.hasOwnProperty("query")) {
+      return;
+    }
+
     this.focusSource = ally.style.focusSource();
     this.focusableElements = ally.query.focusable();
     this.activeElement = ally.event.activeElement();
     this.activeElementBoundingRect = {};
     this.focusRingElement = document.createElement("span");
+    this.settings = focusableData.settings;
     this.outlineColor = window
       .getComputedStyle(document.body, null)
       .getPropertyValue("background-color");
 
     document.body.insertAdjacentElement("beforeend", this.focusRingElement);
 
-    this.addClass();
+    this.addClasses();
+    this.addAttributes();
     this.addEvents();
   }
 
-  addClass() {
+  addClasses() {
     this.focusRingElement.classList.add("focusable__ring");
 
     for (const element of this.focusableElements) {
       element.classList.add("focusable");
     }
+  }
+
+  addAttributes() {
+    this.focusRingElement.setAttribute(
+      "data-focusable-transition",
+      this.settings.transition
+    );
   }
 
   addEvents() {
