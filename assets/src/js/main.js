@@ -86,20 +86,6 @@ class Focusable {
     this.applyStyle(style);
   }
 
-  updateRingPosition() {
-    if (!this.isElement(this.activeElement)) {
-      return;
-    }
-
-    this.activeElementBoundingRect = this.activeElement.getBoundingClientRect();
-
-    const style = {
-      transform: `translate(${this.activeElementBoundingRect.left}px, ${this.activeElementBoundingRect.top}px)`,
-    };
-
-    this.applyStyle(style);
-  }
-
   updateRingColor(element, property) {
     if (!this.isElement(element)) {
       return;
@@ -120,6 +106,20 @@ class Focusable {
     }
 
     return;
+  }
+
+  updateRingPosition() {
+    if (!this.isElement(this.activeElement)) {
+      return;
+    }
+
+    this.activeElementBoundingRect = this.activeElement.getBoundingClientRect();
+
+    const style = {
+      transform: `translate(${this.activeElementBoundingRect.left}px, ${this.activeElementBoundingRect.top}px)`,
+    };
+
+    this.applyStyle(style);
   }
 
   applyStyle(style) {
@@ -151,8 +151,6 @@ if (typeof jQuery === "function") {
   jQuery(document).ready(function () {
     new Focusable();
   });
-
-  console.log(typeof Focusable);
 } else {
   document.addEventListener("DOMContentLoaded", function () {
     new Focusable();
