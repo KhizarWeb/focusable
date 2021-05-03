@@ -7,12 +7,19 @@ class Focusable {
     this.focusSource = ally.style.focusSource();
     this.focusableElements = ally.query.focusable();
     this.activeElement = ally.event.activeElement();
-    this.activeElementBoundingRect = {};
+
+    this.activeElementBoundingRect = {
+      left: 0,
+      top: 0,
+      width: 0,
+      height: 0,
+    };
+
     this.focusRingElement = document.createElement("span");
     this.settings = focusableData.settings;
     this.outlineColor = window
       .getComputedStyle(document.body, null)
-      .getPropertyValue("background-color");
+      .getPropertyValue("color");
 
     document.body.insertAdjacentElement("beforeend", this.focusRingElement);
 
@@ -67,21 +74,16 @@ class Focusable {
 
     this.activeElementBoundingRect = this.activeElement.getBoundingClientRect();
 
-    this.getBackgroundColor(this.activeElement);
+    this.updateRingColor(this.activeElement, "color");
 
-    const values = {
+    const style = {
       transform: `translate(${this.activeElementBoundingRect.left}px, ${this.activeElementBoundingRect.top}px)`,
       width: this.activeElementBoundingRect.width + "px",
       height: this.activeElementBoundingRect.height + "px",
       outlineColor: this.outlineColor,
     };
 
-    for (const property in values) {
-      if (Object.hasOwnProperty.call(values, property)) {
-        const value = values[property];
-        this.focusRingElement.style[property] = value;
-      }
-    }
+    this.applyStyle(style);
   }
 
   updateRingPosition() {
@@ -91,34 +93,42 @@ class Focusable {
 
     this.activeElementBoundingRect = this.activeElement.getBoundingClientRect();
 
-    this.focusRingElement.style.transform = `translate(${this.activeElementBoundingRect.left}px, ${this.activeElementBoundingRect.top}px)`;
+    const style = {
+      transform: `translate(${this.activeElementBoundingRect.left}px, ${this.activeElementBoundingRect.top}px)`,
+    };
+
+    this.applyStyle(style);
   }
 
-  getBackgroundColor(element) {
-    let backgroundColor = window
-      .getComputedStyle(element, null)
-      .getPropertyValue("background-color");
-
-    if (backgroundColor === "rgba(0, 0, 0, 0)" && element !== document.body) {
-      this.getBackgroundColor(element.parentElement);
-    } else {
-      this.outlineColor = backgroundColor;
+  updateRingColor(element, property) {
+    if (!this.isElement(element)) {
       return;
     }
-  }
 
-  gerOutlineColor(element) {
-    let outlineColor = this.outlineColor;
-    let activeOutlineColor = window
-      .getComputedStyle(element, null)
-      .getPropertyValue("outline-color");
-    if (activeOutlineColor === "rgb(0, 0, 0)") {
-      outlineColor = this.outlineColor;
-    } else {
-      outlineColor = activeOutlineColor;
+    if (!this.isElement(element.parentElement)) {
+      return;
     }
 
-    return outlineColor;
+    let color = window
+      .getComputedStyle(element.parentElement, null)
+      .getPropertyValue(property);
+
+    if (color === "rgba(0, 0, 0, 0)" && element !== document.body) {
+      this.updateRingColor(element.parentElement, "color");
+    } else {
+      this.outlineColor = color;
+    }
+
+    return;
+  }
+
+  applyStyle(style) {
+    for (const property in style) {
+      if (Object.hasOwnProperty.call(style, property)) {
+        const value = style[property];
+        this.focusRingElement.style[property] = value;
+      }
+    }
   }
 
   invertColor(rgb) {
@@ -137,6 +147,14 @@ class Focusable {
   }
 }
 
-jQuery(document).ready(function () {
-  new Focusable();
-});
+if (typeof jQuery === "function") {
+  jQuery(document).ready(function () {
+    new Focusable();
+  });
+
+  console.log(typeof Focusable);
+} else {
+  document.addEventListener("DOMContentLoaded", function () {
+    new Focusable();
+  });
+}
