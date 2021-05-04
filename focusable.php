@@ -26,7 +26,7 @@ if (!defined('WPINC')) {
 define('FOCUSABLE_VERSION', '1.2.0');
 define('FOCUSABLE_DIR_URI', plugin_dir_url(__FILE__));
 define('FOCUSABLE_DIR_PATH', plugin_dir_path(__FILE__));
-define('FOCUSABLE_DEVELOPMENT_MODE', true);
+define('FOCUSABLE_DEVELOPMENT_MODE', false);
 
 if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')):
     require_once dirname(__FILE__) . '/vendor/autoload.php';
