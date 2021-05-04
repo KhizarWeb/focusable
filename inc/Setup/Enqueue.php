@@ -28,7 +28,6 @@ class Enqueue
                     "version" => "1.4.1",
                 ],
             ],
-            "css" => [],
         ];
 
         return $assets;
@@ -42,10 +41,13 @@ class Enqueue
      */
     public function enqueue_scripts()
     {
+        $version = FOCUSABLE_VERSION;
 
-        $assets = $this->vendor_assets();
+        if(FOCUSABLE_DEVELOPMENT_MODE) {
+            $version = time();
+        }
 
-        foreach ($assets['js'] as $index => $javascript_asset) {
+        foreach ($this->vendor_assets()['js'] as $index => $javascript_asset) {
 
             wp_enqueue_script(
                 $javascript_asset['name'],
@@ -56,7 +58,7 @@ class Enqueue
             );
         };
 
-        wp_enqueue_script('focusable-main', focusable_assets('js/main.js'), array(), time(), true);
+        wp_enqueue_script('focusable-main', focusable_assets('js/main.js'), array(), $version, true);
 
         wp_localize_script('focusable-main', 'focusableData', [
             "settings" => [
@@ -64,13 +66,12 @@ class Enqueue
             ],
         ]);
 
-        wp_enqueue_style('focusable-style', focusable_assets('css/style.css'), array(), time(), 'all');
+        wp_enqueue_style('focusable-style', focusable_assets('css/style.css'), array(), $version, 'all');
     }
 
     public function admin_enqueue_scripts()
     {
-
-        wp_enqueue_style('focusable-admin', focusable_assets('css/admin.css'), array(), time(), 'all');
+        wp_enqueue_style('focusable-admin', focusable_assets('css/admin.css'), array(), FOCUSABLE_VERSION, 'all');
     }
 
 }

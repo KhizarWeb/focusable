@@ -9,15 +9,22 @@
   }
 
   &__ring {
+    all: unset;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: translate(0, 0);
     position: fixed;
     top: 0;
     left: 0;
+    right: auto;
+    bottom: auto;
     z-index: 999999999;
-    outline: 2px dashed #fff;
-    outline-offset: 2px;
     pointer-events: none;
     border-radius: 10px;
-    // filter: invert(1);
+    background-color: transparent;
+    border: none;
+    outline: 2px dashed #fff;
+    outline-offset: 2px;
 
     &[data-focusable-transition="1"],
     &[data-focusable-transition="true"] {

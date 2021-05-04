@@ -14,9 +14,17 @@ From your WordPress dashboard
 
 **Who is this plugin for exactly?**
 
-This plugin is for those who are unable to see focus ring on elements when navigating through due to having been removed intentionally by the theme.
+This plugin is for those who are unable to see focus ring on elements when navigating through due to having been removed by the theme developer.
 
 ## Changelog
+
+**1.2.0**
+
+- Fixed assets loading issues.
+
+**1.1.0**
+
+- Update outline color based on text color of the parent element.
 
 **1.0.0**
 

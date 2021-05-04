@@ -3,7 +3,7 @@ Contributors: khizar
 Tags: accessibility, keyboard navigation, focus outline
 Requires at least: 5.0.0
 Tested up to: 5.7.0
-Stable tag: 1.0.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,5 +30,11 @@ This plugin is for those who are unable to see focus ring on elements when navig
 
 == Changelog ==
 
+= 1.2.0 =
+* Fixed assets loading issues.
+
+= 1.1.0 =
+* Update outline color based on text color of the parent element.
+
 = 1.0.0 =
-* Releasing the first version of the plugin
+* Releasing the first version of the plugin.

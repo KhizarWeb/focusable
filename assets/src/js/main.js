@@ -17,15 +17,25 @@ class Focusable {
 
     this.focusRingElement = document.createElement("span");
     this.settings = focusableData.settings;
-    this.outlineColor = window
+    this.ringColor = window
       .getComputedStyle(document.body, null)
       .getPropertyValue("color");
 
-    document.body.insertAdjacentElement("beforeend", this.focusRingElement);
-
+    this.mountElement();
     this.addClasses();
     this.addAttributes();
     this.addEvents();
+  }
+
+  mountElement() {
+    let mountToElement = document.body;
+    const footer = document.querySelector("footer");
+
+    if (footer) {
+      mountToElement = footer;
+    }
+
+    mountToElement.insertAdjacentElement("beforeend", this.focusRingElement);
   }
 
   addClasses() {
@@ -80,7 +90,7 @@ class Focusable {
       transform: `translate(${this.activeElementBoundingRect.left}px, ${this.activeElementBoundingRect.top}px)`,
       width: this.activeElementBoundingRect.width + "px",
       height: this.activeElementBoundingRect.height + "px",
-      outlineColor: this.outlineColor,
+      outlineColor: this.ringColor,
     };
 
     this.applyStyle(style);
@@ -102,7 +112,7 @@ class Focusable {
     if (color === "rgba(0, 0, 0, 0)" && element !== document.body) {
       this.updateRingColor(element.parentElement, "color");
     } else {
-      this.outlineColor = color;
+      this.ringColor = color;
     }
 
     return;
@@ -129,17 +139,6 @@ class Focusable {
         this.focusRingElement.style[property] = value;
       }
     }
-  }
-
-  invertColor(rgb) {
-    let RGB = rgb
-      .substring(5, rgb.length - 1)
-      .replace(/ /g, "")
-      .split(",");
-
-    return RGB[0] * 0.299 + RGB[1] * 0.587 + RGB[2] * 0.114 > 125
-      ? "#000000"
-      : "#FFFFFF";
   }
 
   isElement(element) {
