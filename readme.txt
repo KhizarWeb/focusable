@@ -1,8 +1,8 @@
 === Focusable ===
 Contributors: khizar
-Tags: accessibility, keyboard navigation, focus outline
+Tags: accessibility, focus outline, keyboard navigation
 Requires at least: 5.0.0
-Tested up to: 5.7.0
+Tested up to: 5.7.1
 Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -24,7 +24,7 @@ From your WordPress dashboard
 
 = Who is this plugin for exactly? =
 
-This plugin is for those who are unable to see focus ring on elements when navigating through due to having been removed by the theme developer.
+This plugin is for those who are unable to see the focus ring on elements when navigating using the keyboard due to having been removed by the theme developer.
 
 == Screenshots ==
 
