@@ -3,7 +3,7 @@ Contributors: khizar
 Tags: accessibility, focus outline, keyboard navigation
 Requires at least: 5.0.0
 Tested up to: 5.7.1
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,9 @@ This plugin is for those who are unable to see the focus ring on elements when n
 == Screenshots ==
 
 == Changelog ==
+
+= 1.3.0 =
+* Testing up to WordPress 5.7.2.
 
 = 1.2.0 =
 * Fixed assets loading issues.

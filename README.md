@@ -18,6 +18,10 @@ This plugin is for those who are unable to see the focus ring on elements when n
 
 ## Changelog
 
+**1.3.0**
+
+- Testing up to WordPress 5.7.2.
+
 **1.2.0**
 
 - Fixed assets loading issues.

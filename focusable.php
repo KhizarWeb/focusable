@@ -9,7 +9,7 @@
  * Plugin Name:       Focusable
  * Plugin URI:        https://khizar.info/#/focusable
  * Description:       This plugin displays a ring on the focusable elements when navigating through keyboard.
- * Version:           1.2.0
+ * Version:           1.3.0
  * Author:            Khizar Hasan
  * Author URI:        https://khizar.info
  * License:           GPL-2.0+
@@ -23,7 +23,7 @@ if (!defined('WPINC')) {
     die;
 }
 
-define('FOCUSABLE_VERSION', '1.2.0');
+define('FOCUSABLE_VERSION', '1.3.0');
 define('FOCUSABLE_DIR_URI', plugin_dir_url(__FILE__));
 define('FOCUSABLE_DIR_PATH', plugin_dir_path(__FILE__));
 define('FOCUSABLE_DEVELOPMENT_MODE', false);

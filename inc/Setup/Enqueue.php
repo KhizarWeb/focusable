@@ -17,47 +17,16 @@ class Enqueue
         add_action('admin_enqueue_scripts', array($this, 'admin_enqueue_scripts'));
 
     }
-
-    public function vendor_assets()
-    {
-        $assets = [
-            "js" => [
-                [
-                    "name" => "ally",
-                    "file_name" => "ally.min.js",
-                    "version" => "1.4.1",
-                ],
-            ],
-        ];
-
-        return $assets;
-    }
-
-    /**
-     * Notice the mix() function in wp_enqueue_...
-     * It provides the path to a versioned asset by Laravel Mix using querystring-based
-     * cache-busting (This means, the file name won't change, but the md5. Look here for
-     * more information: https://github.com/JeffreyWay/laravel-mix/issues/920 )
-     */
+    
     public function enqueue_scripts()
     {
         $version = FOCUSABLE_VERSION;
 
-        if(FOCUSABLE_DEVELOPMENT_MODE) {
+        if (FOCUSABLE_DEVELOPMENT_MODE) {
             $version = time();
         }
 
-        foreach ($this->vendor_assets()['js'] as $index => $javascript_asset) {
-
-            wp_enqueue_script(
-                $javascript_asset['name'],
-                FOCUSABLE_DIR_URI . 'assets/vendor/js/' . $javascript_asset['file_name'],
-                array(),
-                $javascript_asset['version'],
-                true
-            );
-        };
-
+        wp_enqueue_script('ally', FOCUSABLE_DIR_URI . 'assets/vendor/js/ally.min.js', array(), '1.4.1', true);
         wp_enqueue_script('focusable-main', focusable_assets('js/main.js'), array(), $version, true);
 
         wp_localize_script('focusable-main', 'focusableData', [
