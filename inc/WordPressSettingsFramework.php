@@ -1,8 +1,5 @@
 <?php
 
-namespace Focusable\API\Settings;
-
-
 /**
  * WordPress Settings Framework
  *

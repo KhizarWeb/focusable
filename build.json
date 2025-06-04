@@ -1,0 +1,14 @@
+{
+    "free": {
+        "NAME": "Focusable",
+        "SLUG": "focusable",
+        "PREFIX": "focusable",
+        "VERSION": "2.0.0"
+    },
+    "pro": {
+        "NAME": "Focusable Pro",
+        "SLUG": "focusable-pro",
+        "PREFIX": "focusable_pro",
+        "VERSION": "2.0.0"
+    }
+}

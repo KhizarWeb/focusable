@@ -1,8 +1,0 @@
-@function easing($key) {
-  @if map-has-key($easing, $key) {
-    @return map-get($easing, $key);
-  }
-
-  @warn "Unkown '#{$key}' in $easing.";
-  @return null;
-}
